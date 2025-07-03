@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+Treasury Movement Simulator
+Project Overview
+The Treasury Movement Simulator is a web-based application designed to provide a dynamic and intuitive visual representation of internal fund transfers across virtual accounts within a corporate treasury context. In an increasingly complex global economy, organizations often grapple with fragmented financial data, delayed insights, and inefficient manual processes. This simulator addresses these challenges by offering a clear, real-time perspective on financial movements, enabling better liquidity management, risk mitigation, and strategic financial planning.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Problem Solved
+This project tackles several critical issues faced by modern treasury operations:
 
-## Available Scripts
+Complexity of Global Cash Management: Simplifies the daunting task of tracking funds across multiple countries, currencies (KES, USD, NGN), and legal entities.
 
-In the project directory, you can run:
+Delayed and Incomplete Information: Provides immediate, real-time updates on cash positions, eliminating delays common in traditional systems.
 
-### `npm start`
+Inefficient Manual Processes: Automates the visualization and logging of transactions, reducing reliance on error-prone manual data handling.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Suboptimal Liquidity and Risk Management: Offers a dynamic view that helps optimize cash utilization, identify surpluses/shortfalls, and manage financial risks more effectively.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Features
+The simulator includes the following functionalities:
 
-### `npm test`
+Core Functionality:
+Account Display: Shows a clear list of 10 pre-defined virtual accounts, each with its name (e.g., Mpesa_KES_1), currency (KES, USD, NGN), and current balance.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Fund Transfer Mechanism: Allows users to easily initiate transfers between any two distinct virtual accounts by selecting source/destination, entering an amount, and adding an optional note.
 
-### `npm run build`
+Balance Validation: Automatically checks for sufficient funds in the 'From Account' before processing a transfer, preventing simulated overdrafts.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Transaction Logging: Maintains an immutable, sortable, and filterable log of all completed transfers, including timestamp, account details, transferred amount, and notes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Bonus Functionality:
+FX Conversion (Static Rate): Automatically converts amounts for inter-currency transfers using pre-defined static exchange rates, displaying the converted amount in the log.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Log Filtering: Provides options to filter the transaction log by specific account (source or destination) or by currency.
 
-### `npm run eject`
+Future-Dated Transfers (UI Only): Includes a date picker for logging future dates, though transfers execute immediately within the simulation (for planning/UI purposes only).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+How It Works
+The Treasury Movement Simulator operates as a client-side web application with in-memory data management:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Initial Setup: Upon launching, the application displays a dashboard with 10 virtual accounts and their initial balances.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Transfer Initiation: Users select source and destination accounts, input a transfer amount, and optionally add a note. A future date can be selected for logging purposes.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Validation: The system validates if the source account has sufficient funds. If not, an error message appears.
 
-## Learn More
+Execution & FX: If valid, funds are debited from the source and credited to the destination. If currencies differ, an automatic conversion occurs using fixed exchange rates.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Logging: Every successful transaction is immediately added to a detailed, immutable transaction log, visible on the interface.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Analysis: Users can filter the transaction log to review specific movements by account or currency.
 
-### Code Splitting
+Benefits
+Enhanced Visibility: Real-time insights into global cash and liquidity.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Improved Efficiency: Automation reduces manual effort in tracking and reconciliation.
 
-### Analyzing the Bundle Size
+Strategic Decision-Making: Supports "what-if" scenario planning for financial decisions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Agile Treasury Management: Enables rapid adaptation to market changes and financial innovations.
 
-### Making a Progressive Web App
+Setup and Installation
+This is a client-side web application. To run it:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Save the HTML: Save the provided HTML code (e.g., index.html) to your local machine.
 
-### Advanced Configuration
+Open in Browser: Open the index.html file using any modern web browser (e.g., Chrome, Firefox, Edge, Safari).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+No server-side setup, database, or external dependencies (beyond standard browser capabilities) are required.
 
-### Deployment
+Usage
+Once the application is open in your browser:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+View Accounts: Observe the initial list of accounts, their currencies, and balances.
 
-### `npm run build` fails to minify
+Make a Transfer:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Select an account from the "From Account" dropdown.
+
+Select a different account from the "To Account" dropdown.
+
+Enter a numeric value in the "Transfer Amount" field.
+
+(Optional) Add a "Transfer Note."
+
+(Optional) Select a "Future Date" for the transaction log.
+
+Click the "Transfer Funds" button.
+
+Observe Changes:
+
+Account balances will update immediately.
+
+The transaction will appear in the "Transaction Log" table.
+
+If an FX conversion occurred, the converted amount will be shown.
+
+Filter Transactions: Use the filtering options above the transaction log to view specific transactions by account or currency.
+
+Assumptions and Limitations
+In-Memory Data: All data (account balances, transaction logs) is stored in memory and will be lost if the page is refreshed or the browser tab is closed.
+
+Static FX Rates: Exchange rates are fixed and cannot be changed by the user.
+
+Virtual Environment: This is a simulation; there are no real-world financial integrations.
+
+Single User: Designed for individual use; no multi-user support.
+
+Future Enhancements (Potential Ideas)
+Integration with persistent storage (e.g., a simple local database or cloud-based solution like Firestore) to save data.
+
+Ability to customize or update exchange rates.
+
+Addition of more currencies.
+
+Graphical representation of cash flows over time.
+
+User authentication and multi-user support.
